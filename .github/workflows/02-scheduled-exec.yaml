@@ -1,0 +1,39 @@
+# CI de Nível 02 - Disparo agendado
+
+# nome pipeline
+name: 'Execução de Agendamento de pipeline'
+
+# regras/gatilhos(triggers)
+
+on:
+  schedule:
+    - cron: '35 17 * * 6'
+
+  #trabalhos/tarefas = jobs
+
+jobs:
+  e2e-tests:
+
+  #maquina que vai rodar
+    runs-on: ubuntu-latest
+
+  #passos do build
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+      
+      - name: Instalando Yarn
+        run: npm install -g yarn
+
+      - name: Instalando dependências
+        run: yarn
+
+      - name: Instalando playwright
+        run: yarn playwright install
+
+      - name: Executando os testes e2e
+        run: yarn run e2e
