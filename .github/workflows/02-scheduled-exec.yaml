@@ -7,7 +7,7 @@ name: 'Execução de Agendamento de pipeline'
 
 on:
   schedule:
-    - cron: '35 17 * * 6'
+    - cron: '35 17 * * 7'
 
   #trabalhos/tarefas = jobs
 
