@@ -23,7 +23,7 @@ jobs:
 
       - uses: actions/setup-node#v4
         with:
-          node-version: latest
+          node-version: 22.x
       
       - name: Instalando Yarn
         run: npm install -g Yarn
