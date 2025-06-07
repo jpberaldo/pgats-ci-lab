@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
   #condicionais
-    if: ${{ github.event.workflow-run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
   #passos do build
     steps:
