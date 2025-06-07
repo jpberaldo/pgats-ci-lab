@@ -66,5 +66,5 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-          - name: Deploy simulation
-            run: echo 'Deploy application'
+          - name: Simulando deploy
+            run: echo 'Simulando execução do deploy'
