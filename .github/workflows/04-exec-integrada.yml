@@ -1,70 +1,69 @@
 name: 'Execução integrada'
 
 on:
-    workflow_dispatch:
-    
+  workflow_dispatch:
+
 jobs:
-    inspecao:
-        runs-on: ubuntu-latest
+  inspecao:
+    runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
-            - name: Instalando yarn
-              run: npm install -g yarn
+      - name: Instalando yarn
+        run: npm install -g yarn
 
-            - name: Instalando dependências
-              run: yarn 
+      - name: Instalando dependências
+        run: yarn
 
-            - name: Checando padronização de código
-              run: yarn lint
+      - name: Checando padronização de código
+        run: yarn lint
 
-    
-    unidade:
-        runs-on: ubuntu-latest
+  unidade:
+    runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
-            - name: Instalando yarn
-              run: npm install -g yarn
+      - name: Instalando yarn
+        run: npm install -g yarn
 
-            - name: Instalando dependências
-              run: yarn    
-              
-            - name: Execução testes de unidade
-              run: yarn test
+      - name: Instalando dependências
+        run: yarn
 
-    e2e-tests:
-        runs-on: ubuntu-latest
+      - name: Execução testes de unidade
+        run: yarn test
 
-        steps:
-            - uses: actions/checkout@v4
+  e2e-tests:
+    runs-on: ubuntu-latest
 
-            - uses: actions/setup-node@v4
-              with:
-                node-version: latest
+    steps:
+      - uses: actions/checkout@v4
 
-            - name: Install Yarn
-              run: npm install -g yarn
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
 
-            - name: Install project dependencies
-              run: yarn
+      - name: Install Yarn
+        run: npm install -g yarn
 
-            - name: Install Playwright browsers
-              run: yarn playwright install
+      - name: Install project dependencies
+        run: yarn
 
-            - name: Run E2E tests
-              run: yarn run e2e
+      - name: Install Playwright browsers
+        run: yarn playwright install
 
-            - name: Upload artifacts
-              uses: actions/upload-artifact@v4
-              if: ${{ always() }}
-              with:
-                path: ./playwright-report
-    deploy:
-        runs-on: ubuntu-latest
+      - name: Run E2E tests
+        run: yarn run e2e
 
-        steps:
-          - name: Simulando deploy
-            run: echo 'Simulando execução do deploy'
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          path: ./playwright-report
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Simulando deploy
+        run: echo 'Simulando execução do deploy'
