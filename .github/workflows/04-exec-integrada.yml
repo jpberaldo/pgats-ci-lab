@@ -37,7 +37,7 @@ jobs:
 
   e2e-tests:
     runs-on: ubuntu-latest
-    needs: [unidade]
+    needs: [inspecao, unidade]
 
     steps:
       - uses: actions/checkout@v4
@@ -65,7 +65,7 @@ jobs:
           path: ./playwright-report
   deploy:
     runs-on: ubuntu-latest
-    needs: [inspecao]
+    needs: [inspecao, unidade, e2e-tests]
 
     steps:
       - name: Simulando deploy
