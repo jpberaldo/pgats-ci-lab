@@ -1,7 +1,7 @@
 # CI de Nível 01 - Disparo manual a partir de 1 clique
 
 # nome pipeline
-name: 'Execução Manual da pipeline Nova'
+name: 'Execução por Deploy pipeline'
 
 # regras/gatilhos(triggers)
 
