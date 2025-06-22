@@ -1,13 +1,15 @@
 # CI de Nível 02 - Disparo agendado
 
 # nome pipeline
-name: 'Execução de Agendamento de pipeline'
+name: 'Execução de pipe agendada'
 
 # regras/gatilhos(triggers)
 
 on:
-  schedule:
-    - cron: '45 14 * * *'
+  workflow_dispatch:
+    
+  #schedule:
+   # - cron: '45 14 * * *'
 
   #trabalhos/tarefas = jobs
 
